@@ -1,0 +1,75 @@
+CREATE DATABASE QUANLYDEAN
+USE QUANLYDEAN
+
+CREATE TABLE CHUYENMON
+(
+	MaTDCM CHAR(3) PRIMARY KEY NOT NULL,
+	TenTDCM NVARCHAR(100) NOT NULL,
+)
+INSERT INTO CHUYENMON VALUES ('A01',N'K? su Công ngh? thông tin')
+INSERT INTO CHUYENMON VALUES ('A02',N'K? su M?ng máy tính và truy?n thông')
+INSERT INTO CHUYENMON VALUES ('A03',N'K? su Công ngh? ph?n m?m')
+INSERT INTO CHUYENMON VALUES ('A04',N'K? su H? th?ng thông tin')	
+
+INSERT INTO CHUYENMON VALUES ('B01',N'K? su Nông Nghi?p')
+INSERT INTO CHUYENMON VALUES ('C01',N'C? nhân k? toán')
+INSERT INTO CHUYENMON VALUES ('C02',N'C? nhân Qu?n tr? doanh nghi?p')
+
+INSERT INTO CHUYENMON VALUES ('D01',N'K? thu?t viên thi?t k?, cài d?t m?ng')
+INSERT INTO CHUYENMON VALUES ('D02',N'K? thu?t viên thi?t k? d? h?a')
+INSERT INTO CHUYENMON VALUES ('D03',N'K? thu?t viên thu th?p s? li?u')
+
+CREATE TABLE NHANVIEN
+(
+	MaNV char(6) PRIMARY KEY NOT NULL,
+	HoNV nvarchar(20) not null,
+	TenLotNV nvarchar(20) not null,
+	TenNV nvarchar(20) not null, 
+	NgaySinh datetime,
+	Phai nvarchar(3),
+	Diachi nvarchar(100),
+	Hesoluong dec(4,2),
+	MaTDCM char(3) constraint RB_TDCM foreign key (MaTDCM) references CHUYENMON(MaTDCM),
+)
+
+	SELECT * FROM NHANVIEN
+	DELETE FROM NHANVIEN
+INSERT INTO NHANVIEN VALUE('A1.001',N'Nguy?n',N'Thanh',N'Tùng','08/12/1965',N'Nam',N'Trà Vinh','4.06','A01')
+INSERT INTO NHANVIEN VALUE('A1.002',N'Nguy?n',N'M?nh',N'Hùng','09/15/1962',N'Nam',N'Vinh Long','4.33','A02')
+INSERT INTO NHANVIEN VALUE('A1.003',N'Tr?n',N'Thanh',N'Tâm','07/31/1972',N'N?',N'Vinh Long','3.99','A03')
+INSERT INTO NHANVIEN VALUE('A1.004',N'Bùi',N'Ng?c',N'H?ng','07/19/1987',N'N?',N'C?n Tho','3.00','A04')	
+INSERT INTO NHANVIEN VALUE('A1.005',N'Lê',N'Qu?nh',N'Nhu','07/20/1971',N'N?',N'Trà Vinh','4.33','B01')
+INSERT INTO NHANVIEN VALUE('A1.006',N'Tr?n',N'Th?',N'Huong','11/10/1975',N'N?',N'C?n Tho','3.99','C01')
+INSERT INTO NHANVIEN VALUE('A01.007',N'Tr?n',N'H?ng',N'Quang','04/8/1979',N'Nam',N'Trà Vinh','3.66','C02')
+INSERT INTO NHANVIEN VALUE('A01.008',N'Ph?m',N'Van',N'Vinh','11/10/1985',N'Nam',N'Vinh Long','2.67','D01')
+INSERT INTO NHANVIEN VALUE('A2.001',N'Tr?n',N'H?ng',N'Thanh','12/8/1967',N'N?',N'Trà Vinh','4.66','D02')
+INSERT INTO NHANVIEN VALUE('A2.002',N'Nguy?n',N'M?nh',N'Hùng','09/15/1962',N'Nam',N'Vinh Long','4.33','D03')
+INSERT INTO NHANVIEN VALUE('A2.003',N'Tr?n',N'Thanh',N'Hung','07/31/1972',N'Nam',N'Vinh Long','4.33','A01')
+INSERT INTO NHANVIEN VALUE('A2.004',N'Lê',N'Ng?c',N'H?ng','07/19/1987',N'N?',N'Trà Vinh','3.00','A02')
+INSERT INTO NHANVIEN VALUE('A2.005',N'Lê',N'Qu?nh',N'Huong','07/20/1971',N'N?',N'TRà Vinh','3.33','A03')
+INSERT INTO NHANVIEN VALUE('A2.006',N'Phan',N'Th?',N'Huong','11/10/1985',N'N?',N'C?n Tho','3.99','C02')
+INSERT INTO NHANVIEN VALUE('A2.007',N'Tr?n',N'Vinh',N'Quang','04/08/1979',N'Nam',N'C?n Tho','3.66','D01')
+INSERT INTO NHANVIEN VALUE('A2.008',N'Tr?n',N'Van',N'Anh','11/10/1994',N'Nam',N'Trà Vinh','3.33','D03')
+INSERT INTO NHANVIEN VALUE('A2.009',N'Ph?m',N'Van',N'Vi?n','11/10/1995',N'Nam',N'Trà Vinh','3.33','D02')
+INSERT INTO NHANVIEN VALUE('A2.010',N'Lê',N'Vinh',N'Quang','04/08/1979',N'Nam',N'C?n Tho','3.66','D01')
+INSERT INTO NHANVIEN VALUE('A2.011',N'Lê',N'Van',N'Anh','11/10/1994',N'Nam',N'Trà Vinh','3.33','D03')
+INSERT INTO NHANVIEN VALUE('A2.012',N'Lê',N'Van',N'Vi?n','11//1995',N'Nam',N'Trà Vinh','3.33','D02')
+
+CREATE TABLE PHONGBAN
+(
+	MaPB char(2) PRIMARY KEY,
+	TenPB nvarchar(100) not null,
+)
+
+SELECT * FROM PHONGBAN
+DELETE FROM PHONGBAN
+
+INSERT INTO PHONGBAN VALUE('KT',N'K? thu?t')
+INSERT INTO PHONGBAN VALUE('KD',N'Kinh doanh')
+INSERT INTO PHONGBAN VALUE('SX',N'S?n xu?t')
+
+CREATE TABLE NHIEMVU
+(
+	MaNhiemVu char(2) PRIMARY KEY,
+	TenNhiemVu nvarchar(50) not null'
+)
